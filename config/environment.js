@@ -1,6 +1,14 @@
 'use strict';
 
+const tailwindConfig = require('./tailwind.js');
+const resolveTwConfig = require('tailwindcss/resolveConfig');
+
 module.exports = function(environment) {
+  const tailwind = resolveTwConfig(tailwindConfig);
+  const {
+    API_HOST
+  } = process.env;
+
   let ENV = {
     modulePrefix: 'orta-club',
     environment,
@@ -20,6 +28,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    tailwind,
+
+    API: {
+      HOST: API_HOST
     }
   };
 
