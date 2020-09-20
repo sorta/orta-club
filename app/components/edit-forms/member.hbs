@@ -1,0 +1,23 @@
+<h2 class="text-xl font-semibold mb-4">Member Details</h2>
+
+<div class="mb-3">
+  <label class="block">
+    First Name *
+  </label>
+  <Input
+    @value={{@member.nameFirst}}
+    required
+    class="border rounded px-2 py-1"
+  />
+</div>
+
+<div>
+  <label class="block">
+    Birthdate
+  </label>
+  <Input
+    @type='date'
+    @value={{@member.birthdate}}
+    class="border rounded px-2 py-1"
+  />
+</div>

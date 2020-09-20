@@ -1,1 +1,14 @@
+<EditForms::Member @member={{@model.member}} />
+{{!-- <EditForms::User @member={{@model.user}} /> --}}
+{{#if this.isInvalid}}
+  <p class="text-red-700">
+    Invalid input.
+    Please ensure that all fields are filled out correctly.
+  </p>
+{{/if}}
+<button
+  type="button"
+  class="border border-1 border-purple-700 mt-6 rounded-md px-2 py-1"
+  {{on 'click' (fn this.tryToRegister)}}
+>Submit</button>
 {{outlet}}
