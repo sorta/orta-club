@@ -3,7 +3,7 @@
 const tailwindConfig = require('./tailwind.js');
 const resolveTwConfig = require('tailwindcss/resolveConfig');
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const tailwind = resolveTwConfig(tailwindConfig);
   const {
     API_HOST
@@ -33,8 +33,8 @@ module.exports = function(environment) {
     tailwind,
 
     API: {
-      HOST: API_HOST
-    }
+      HOST: API_HOST,
+    },
   };
 
   if (environment === 'development') {
@@ -43,6 +43,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      enabled: false,
+    };
   }
 
   if (environment === 'test') {

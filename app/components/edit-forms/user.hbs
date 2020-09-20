@@ -1,11 +1,11 @@
-<h2 class="text-xl font-semibold mb-3">Member Details</h2>
+<h2 class="text-xl font-semibold mb-3">User Details</h2>
 
 <div class="mb-3">
   <label class="block">
-    First Name *
+    Email *
   </label>
   <Input
-    @value={{@member.nameFirst}}
+    @value={{@user.email}}
     required
     class="border rounded px-2 py-1"
   />
@@ -13,11 +13,11 @@
 
 <div class="mb-6">
   <label class="block">
-    Birthdate
+    Password *
   </label>
   <Input
-    @type='date'
-    @value={{@member.birthdate}}
+    @value={{@user.password}}
+    required
     class="border rounded px-2 py-1"
   />
 </div>
