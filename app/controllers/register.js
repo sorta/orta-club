@@ -37,7 +37,7 @@ export default class RegisterController extends Controller {
 
   @(task(function * () {
     const member = yield this.model.member.save();
-    this.model.user.memberId = member.id;
+    this.model.user.member = member;
     const user = yield this.model.user.save();
     console.log('M', this.model);
     this.router.transitionTo('index');
