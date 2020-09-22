@@ -39,7 +39,6 @@ export default class RegisterController extends Controller {
     const member = yield this.model.member.save();
     this.model.user.member = member;
     const user = yield this.model.user.save();
-    console.log('M', this.model);
     this.router.transitionTo('index');
   })) registerTask;
 }

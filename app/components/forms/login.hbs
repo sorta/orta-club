@@ -22,13 +22,14 @@
   />
 </div>
 
-{{#if this.errorMessage}}
+{{!-- {{#if this.errorMessage}}
   <p class="text-red-700 mb-4">
     {{this.errorMessage}}
   </p>
-{{/if}}
+{{/if}} --}}
 
 <button
   type="button"
-  {{on 'click' (fn this.authenticate)}}
+  class="border border-1 border-purple-700 rounded-md px-2 py-1"
+  {{on 'click' (fn this.tryToLogin)}}
 >Login</button>
