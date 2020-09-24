@@ -34,9 +34,7 @@ export default class CustomAuthenticator extends Base {
       }
 
       const data = await response.json();
-      const { token } = data;
-
-      return { token };
+      return data;
     } catch (e) {
       warn(`JWT error: ${e}`, { id: 'jwt.authenticate' });
       throw e;

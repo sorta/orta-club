@@ -1,0 +1,8 @@
+<Layout::ColCenter class="mt-10">
+  <h2 class="text-2xl font-semibold mb-6">My Account</h2>
+
+  <EditForms::Member @member={{@model.member}} />
+  <EditForms::User @user={{@model.user}} />
+
+  <Buttons::Submit @onClick={{this.tryToSave}} />
+</Layout::ColCenter>

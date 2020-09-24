@@ -8,8 +8,23 @@ export default class AuthService extends Service {
 
   @service router;
   @service session;
+  @service store;
 
   @readOnly('session.isAuthenticated') isAuthenticated;
+
+  async loadCurrentUser() {
+    try {
+      const userId = this.session.data.authenticated.id;
+
+      if (userId) {
+        const user = await this.store.findRecord('user', userId);
+        this.user = user;
+      }
+    } catch (e) {
+      this.user = null;
+      await this.session.invalidate();
+    }
+  }
 
   @task(function* (email, password) {
     try {
