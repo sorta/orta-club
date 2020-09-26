@@ -3,13 +3,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | forms/login', function (hooks) {
+module('Integration | Component | forms/edit/member', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    await render(hbs`<Forms::Edit::Member />`);
 
-    await render(hbs`<Forms::Login />`);
-
-    assert.ok(this.element.textContent.includes('Login'), 'Include Login');
+    assert.ok(this.element.textContent.includes('Member'), 'Include Member');
   });
 });
