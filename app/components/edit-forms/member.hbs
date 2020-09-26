@@ -17,7 +17,8 @@
   </label>
   <Input
     @type='date'
-    @value={{@member.birthdate}}
+    value={{@member.formattedBirthdate}}
+    {{on 'input' this.setDate}}
     class="border rounded px-2 py-1"
   />
 </div>
