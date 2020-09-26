@@ -4,19 +4,21 @@ import { task } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 
 export default class AccountController extends Controller {
-  @service validate;
+  @service validation;
 
   @action
   tryToSave() {
     this.isInvalid = false;
 
-    const { nameFirst } = this.model.member;
-    if (!nameFirst) {
+    const memberValidationErrors = this.model.member.validate();
+
+    // const { nameFirst } = this.model.member;
+    if (memberValidationErrors.length) {
       this.isInvalid = true;
     }
 
     const { email } = this.model.user;
-    if (!email || !this.validate.email(email)) {
+    if (!email || !this.validation.email(email)) {
       this.isInvalid = true;
     }
 

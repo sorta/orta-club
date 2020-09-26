@@ -1,4 +1,5 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
+import { inject as service } from '@ember/service';
 
 export default class MemberModel extends Model {
   @attr('string') nameFirst;
@@ -9,6 +10,8 @@ export default class MemberModel extends Model {
   @attr('boolean') isApproved;
 
   @belongsTo('user') user;
+
+  @service('validation') validationService;
 
   get formattedBirthdate() {
     const { birthdate } = this;
@@ -29,5 +32,19 @@ export default class MemberModel extends Model {
     }
 
     return `${bd.getFullYear()}-${month}-${day}`;
+  }
+
+  get validations() {
+    return {
+      nameFirst: {
+        name: 'First Name',
+        validators: 'present',
+      },
+    };
+  }
+
+  validate() {
+    const result = this.validationService.validateModel(this);
+    return result;
   }
 }

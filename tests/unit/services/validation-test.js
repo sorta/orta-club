@@ -1,12 +1,12 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Service | validate', function(hooks) {
+module('Unit | Service | validation', function (hooks) {
   setupTest(hooks);
 
   // TODO: Replace this with your real tests.
-  test('it exists', function(assert) {
-    let service = this.owner.lookup('service:validate');
+  test('it exists', function (assert) {
+    let service = this.owner.lookup('service:validation');
     assert.ok(service);
   });
 });
