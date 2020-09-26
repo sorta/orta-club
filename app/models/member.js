@@ -1,7 +1,7 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
-import { inject as service } from '@ember/service';
+import { attr, belongsTo } from '@ember-data/model';
+import ValidatableModel from 'orta-club/models/validatable';
 
-export default class MemberModel extends Model {
+export default class MemberModel extends ValidatableModel {
   @attr('string') nameFirst;
   @attr('string') nameMiddle;
   @attr('string') nameLast;
@@ -10,8 +10,6 @@ export default class MemberModel extends Model {
   @attr('boolean') isApproved;
 
   @belongsTo('user') user;
-
-  @service('validation') validationService;
 
   get formattedBirthdate() {
     const { birthdate } = this;
@@ -41,10 +39,5 @@ export default class MemberModel extends Model {
         validators: 'present',
       },
     };
-  }
-
-  validate() {
-    const result = this.validationService.validateModel(this);
-    return result;
   }
 }

@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { isArray } from '@ember/array';
-import { assert } from '@ember/debug';
+import { assert, warn } from '@ember/debug';
 
 export default class ValidationService extends Service {
   get emailRegex() {
@@ -16,6 +16,7 @@ export default class ValidationService extends Service {
     return !!value;
   }
 
+  // Model helpers
   getValidatorData(obj) {
     if (typeof obj === 'string') {
       return [obj];
@@ -42,21 +43,27 @@ export default class ValidationService extends Service {
     }
   }
 
-  // service
-  validateModel(model) {
-    assert('Must pass a model', !!model);
-    const { validations } = model;
-    assert(
-      'Model must have validations',
-      !!validations || Object.keys(validations).length,
-    );
+  getValidationSet(model, name) {
+    const setName = name || 'main';
+    const validationSet = model.get(`validationSets.${setName}`);
+    return validationSet;
+  }
 
-    // const options = argOpts || {};
+  // service
+  validateModel(model, options = {}) {
+    assert('Must pass a model', !!model);
+
+    const validationSetName = options['validationSet'] || 'main';
+    const validationSet = this.getValidationSet(model, validationSetName);
+    assert(
+      `Validation Set not found: ${validationSetName}`,
+      !!validationSet && Object.keys(validationSet).length,
+    );
 
     const errors = [];
 
-    for (const key in validations) {
-      const propValidationData = this.getValidationData(validations[key]);
+    for (const key in validationSet) {
+      const propValidationData = this.getValidationData(validationSet[key]);
       const prop = model.get(key);
 
       for (const validator of propValidationData.validators) {
@@ -73,6 +80,11 @@ export default class ValidationService extends Service {
       }
     }
 
+    if (errors.length) {
+      warn(`Validation failed: ${JSON.stringify(errors)}`, {
+        id: 'validation.validateModel',
+      });
+    }
     return errors;
   }
 }
