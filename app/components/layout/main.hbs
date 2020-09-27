@@ -1,0 +1,10 @@
+<div
+  {{on 'click' this.userNav.close}}
+  ...attributes
+>
+  <Layout::Header />
+
+  <Layout::Page>
+    {{yield}}
+  </Layout::Page>
+</div>
