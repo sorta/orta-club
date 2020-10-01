@@ -1,8 +1,12 @@
-<Layout::ColCenter class="mt-10">
-  <h2 class="text-2xl font-semibold mb-6">My Account</h2>
+<form
+  {{on 'submit' this.tryToSave}}
+>
+  <Layout::ColCenter class="mt-10">
+    <h2 class="text-2xl font-semibold mb-6">My Account</h2>
 
-  <Forms::Edit::Member @member={{@model.member}} />
-  <Forms::Edit::User @user={{@model.user}} />
+    <Forms::Edit::Member @member={{@model.member}} />
+    <Forms::Edit::User @user={{@model.user}} />
 
-  <Buttons::Submit @onClick={{this.tryToSave}} />
-</Layout::ColCenter>
+    <Buttons::Submit />
+  </Layout::ColCenter>
+</form>

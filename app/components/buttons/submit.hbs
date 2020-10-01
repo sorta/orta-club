@@ -1,8 +1,9 @@
 <button
-  type="button"
+  type={{this.type}}
   class="border border-1 border-purple-700 rounded-md px-2 py-1 self-end"
   disabled={{@disabled}}
-  {{on 'click' (fn @onClick)}}
+  ...attributes
+  {{on 'click' (fn this.onClick)}}
 >
   {{#if hasBlock}}
     {{~ yield ~}}

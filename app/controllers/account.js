@@ -7,7 +7,11 @@ export default class AccountController extends Controller {
   @service validation;
 
   @action
-  tryToSave() {
+  tryToSave(event) {
+    if (event && event.preventDefault) {
+      event.preventDefault();
+    }
+
     this.isInvalid = false;
 
     const memberValidationErrors = this.model.member.validate();
