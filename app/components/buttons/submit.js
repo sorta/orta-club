@@ -1,7 +1,15 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class ButtonsSubmitComponent extends Component {
-  type = 'submit';
+  get type() {
+    return this.args.type || 'submit';
+  }
 
-  onClick() {}
+  @action
+  clickAction() {
+    if (typeof this.args.onClick === 'function') {
+      this.args.onClick();
+    }
+  }
 }

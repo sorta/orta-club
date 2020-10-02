@@ -7,10 +7,10 @@ export default class AccountController extends Controller {
   @service validation;
 
   @action
-  tryToSave(event) {
-    if (event && event.preventDefault) {
-      event.preventDefault();
-    }
+  saveAction() {
+    // if (event && event.preventDefault) {
+    //   event.preventDefault();
+    // }
 
     this.isInvalid = false;
 
