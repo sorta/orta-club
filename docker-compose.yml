@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+    environment:
+      - API_HOST=${API_HOST}
+    ports:
+      - 4200:4200
+      - 7020:7020
+      - 7357:7357
+    command: 'ember s'
