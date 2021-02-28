@@ -11,3 +11,5 @@ services:
       - 7020:7020
       - 7357:7357
     command: 'ember s'
+    volumes:
+      - ${PWD}:/app
