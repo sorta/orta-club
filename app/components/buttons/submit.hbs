@@ -1,0 +1,13 @@
+<button
+  type={{this.type}}
+  class="border border-1 border-purple-700 rounded-md px-2 py-1 self-end"
+  disabled={{@disabled}}
+  ...attributes
+  {{on 'click' this.clickAction}}
+>
+  {{#if hasBlock}}
+    {{~ yield ~}}
+  {{else}}
+    {{~ 'Submit' ~}}
+  {{/if}}
+</button>

@@ -1,0 +1,23 @@
+<h2 class="text-xl font-semibold mb-3">User Details</h2>
+
+<div class="mb-3">
+  <label class="block">
+    Email *
+  </label>
+  <Input
+    @value={{@user.email}}
+    required
+    class="border rounded px-2 py-1"
+  />
+</div>
+
+<div class="mb-6">
+  <label class="block">
+    Password *
+  </label>
+  <Input
+    @value={{@user.password}}
+    required
+    class="border rounded px-2 py-1"
+  />
+</div>

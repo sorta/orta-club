@@ -1,0 +1,12 @@
+<div class="bg-purple-700" ...attributes>
+  <Layout::Page class="py-2 flex justify-between items-center text-white relative">
+    <h1 class="text-2xl">
+      <LinkTo @route={{if this.auth.isAuthenticated 'index' 'login'}}>
+        Orta Club
+      </LinkTo>
+    </h1>
+    {{#if this.auth.isAuthenticated}}
+      <Layout::UserNav />
+    {{/if}}
+  </Layout::Page>
+</div>

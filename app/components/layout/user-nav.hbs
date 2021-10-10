@@ -1,0 +1,24 @@
+<div
+  class="self-stretch relative"
+  {{on 'click' this.toggle}}
+>
+  <FaIcon
+    @icon='user-astronaut'
+    @size='2x'
+    class="cursor-pointer"
+  />
+
+  <div
+    class="{{if this.userNav.isOpen '' 'hidden'}} flex flex-col items-stretch bg-white absolute right-0 mt-3 border"
+  >
+    <LinkTo @route='account' class="text-black px-4 py-2 whitespace-no-wrap">
+      My Account
+    </LinkTo>
+
+    <button
+      type="button"
+      class="border-t text-black px-4 py-2 whitespace-no-wrap"
+      {{on 'click' (perform this.auth.logoutTask)}}
+    >Log Out</button>
+  </div>
+</div>

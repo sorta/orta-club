@@ -1,0 +1,33 @@
+<div class="flex justify-center w-full">
+  <div class="mt-24 p-6 border border-purple-700 rounded-lg flex flex-col">
+    <h2 class="text-xl font-semibold mb-3">Login</h2>
+
+    <div class="mb-3">
+      <label class="block">
+        Email
+      </label>
+      <Input
+        @value={{this.email}}
+        required
+        class="border rounded px-2 py-1"
+      />
+    </div>
+
+    <div class="mb-6">
+      <label class="block">
+        Password
+      </label>
+      <Input
+        @value={{this.password}}
+        required
+        class="border rounded px-2 py-1"
+      />
+    </div>
+
+    <button
+      type="button"
+      class="border border-1 border-purple-700 rounded-md px-2 py-1 self-end"
+      {{on 'click' (fn this.tryToLogin)}}
+    >Login</button>
+  </div>
+</div>
