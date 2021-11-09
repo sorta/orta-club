@@ -1,0 +1,22 @@
+{{#if @model.loading}}
+  Loading...
+{{else}}
+  {{#each @model as |year|}}
+    <h2>
+      {{year.num}}
+      {{#each year.donnings as |donning|}}
+        <div>
+          {{donning.member.name_first}}
+          wore the
+          {{donning.gayApparel.name}}
+          in
+          {{donning.location.name}}
+        </div>
+      {{/each}}
+    </h2>
+    <br/>
+    <br/>
+  {{/each}}
+{{/if}}
+
+{{outlet}}
