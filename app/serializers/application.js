@@ -5,4 +5,7 @@ export default class ApplicationSerializer extends JSONAPISerializer {
   keyForAttribute(attr) {
     return underscore(attr);
   }
+  keyForRelationship(rel) {
+    return underscore(rel);
+  }
 }
