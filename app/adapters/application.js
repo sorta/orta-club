@@ -1,6 +1,8 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import { underscore } from '@ember/string';
+import { pluralize } from 'ember-inflector';
 import ENV from 'orta-club/config/environment';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
@@ -16,5 +18,9 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     }
 
     return headers;
+  }
+
+  pathForType(typeName) {
+    return pluralize(underscore(typeName));
   }
 }
