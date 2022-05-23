@@ -9,6 +9,7 @@ export default class TimelineRoute extends AuthenticatedRoute {
       include: {
         donnings: ['location', 'gay_apparel', 'member'],
       },
+      sort: '-num',
     });
   }
 }
