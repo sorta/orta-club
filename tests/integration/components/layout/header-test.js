@@ -12,7 +12,7 @@ module('Integration | Component | layout/header', function (hooks) {
 
     await render(hbs`<Layout::Header />`);
 
-    assert.equal(this.element.textContent.trim(), 'Orta Club');
+    assert.dom(this.element).hasText('Orta Club');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | layout/header', function (hooks) {
       </Layout::Header>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'Orta Club');
+    assert.dom(this.element).hasText('Orta Club');
   });
 });
