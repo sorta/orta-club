@@ -3,8 +3,10 @@ import { inject as service } from '@ember/service';
 
 export default class ApplicationRoute extends Route {
   @service auth;
+  @service session;
 
-  beforeModel() {
+  async beforeModel() {
+    await this.session.setup();
     return this.auth.loadCurrentUser();
   }
 }
