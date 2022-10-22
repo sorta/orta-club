@@ -12,7 +12,7 @@ Router.map(function () {
   this.route('account');
   this.route('admin', function () {
     this.route('members', function () {
-      this.route('edit');
+      this.route('edit', { path: '/:member_id' });
     });
   });
   this.route('timeline', { path: '/' });
