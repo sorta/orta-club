@@ -35,10 +35,11 @@ export default class RegisterController extends Controller {
     this.registerTask.perform();
   }
 
-  @(task(function * () {
+  @task(function* () {
     const member = yield this.model.member.save();
     this.model.user.member = member;
     const user = yield this.model.user.save();
     this.router.transitionTo('index');
-  })) registerTask;
+  })
+  registerTask;
 }

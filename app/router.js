@@ -10,6 +10,10 @@ Router.map(function () {
   this.route('register');
   this.route('login');
   this.route('account');
-  this.route('admin', function() {});
-  this.route('timeline');
+  this.route('admin', function () {
+    this.route('members', function () {
+      this.route('edit');
+    });
+  });
+  this.route('timeline', { path: '/' });
 });

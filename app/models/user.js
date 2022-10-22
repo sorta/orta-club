@@ -5,5 +5,5 @@ export default class UserModel extends Model {
   @attr('string') password;
   @attr('boolean') isAdmin;
 
-  @belongsTo('member') member;
+  @belongsTo('member', { async: true, inverse: null }) member;
 }

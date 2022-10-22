@@ -5,7 +5,7 @@
   ...attributes
   {{on 'click' this.clickAction}}
 >
-  {{#if hasBlock}}
+  {{#if (has-block)}}
     {{~ yield ~}}
   {{else}}
     {{~ 'Submit' ~}}

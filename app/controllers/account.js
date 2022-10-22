@@ -33,8 +33,9 @@ export default class AccountController extends Controller {
     this.saveTask.perform();
   }
 
-  @(task(function * () {
+  @task(function* () {
     yield this.model.member.save();
     yield this.model.user.save();
-  })) saveTask;
+  })
+  saveTask;
 }

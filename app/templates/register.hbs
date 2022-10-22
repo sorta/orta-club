@@ -11,7 +11,7 @@
 <button
   type="button"
   class="border border-1 border-purple-700 rounded-md px-2 py-1"
-  {{on 'click' (fn this.tryToRegister)}}
+  {{on 'click' this.tryToRegister}}
 >Submit</button>
 
 {{outlet}}

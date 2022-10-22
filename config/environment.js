@@ -5,9 +5,7 @@ const resolveTwConfig = require('tailwindcss/resolveConfig');
 
 module.exports = function (environment) {
   const tailwind = resolveTwConfig(tailwindConfig);
-  const {
-    API_HOST
-  } = process.env;
+  const { API_HOST } = process.env;
 
   let ENV = {
     modulePrefix: 'orta-club',

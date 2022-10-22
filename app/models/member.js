@@ -9,7 +9,7 @@ export default class MemberModel extends ValidatableModel {
   @attr('date') birthdate;
   @attr('boolean') isApproved;
 
-  @belongsTo('user') user;
+  @belongsTo('user', { async: true, inverse: null }) user;
 
   get formattedBirthdate() {
     const { birthdate } = this;

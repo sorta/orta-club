@@ -1,7 +1,7 @@
 <div class="bg-purple-700" ...attributes>
   <Layout::Page class="py-2 flex justify-between items-center text-white relative">
     <h1 class="text-2xl">
-      <LinkTo @route={{if this.auth.isAuthenticated 'index' 'login'}}>
+      <LinkTo @route={{if this.auth.isAuthenticated 'timeline' 'login'}}>
         Orta Club
       </LinkTo>
     </h1>

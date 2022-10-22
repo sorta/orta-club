@@ -10,7 +10,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
 
   host = ENV.API.HOST;
 
-  @computed("session.data.authenticated.token")
+  @computed('session.data.authenticated.token', 'session.isAuthenticated')
   get headers() {
     const headers = {};
     if (this.session.isAuthenticated) {
