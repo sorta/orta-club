@@ -1,10 +1,3 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
-export default class AdminMembersRoute extends Route {
-  @service store;
-
-  model() {
-    return this.store.findAll('member');
-  }
-}
+export default class AdminMembersRoute extends Route {}

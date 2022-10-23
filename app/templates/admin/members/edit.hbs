@@ -1,2 +1,9 @@
+&gt; <LinkTo @route='admin.members.edit' @model={{@model}}>{{@model.nameFirst}}</LinkTo>
 {{page-title "Edit"}}
 {{outlet}}
+<Admin::Content>
+  <Forms::Form @onSubmit={{this.saveAction}}>
+    <Forms::Edit::Member @member={{@model}} />
+    <Buttons::Submit />
+  </Forms::Form>
+</Admin::Content>

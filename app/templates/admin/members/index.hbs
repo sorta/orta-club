@@ -1,5 +1,5 @@
 {{page-title "Index"}}
 {{outlet}}
 <Admin::Content>
-  <Admin::ResourceList @models={{@model}} @fields={{array 'id' 'nameFirst'}} />
+  <Admin::ResourceList @models={{@model.members}} @fields={{array 'id' 'nameFirst'}} />
 </Admin::Content>

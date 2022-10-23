@@ -15,6 +15,12 @@
       My Account
     </LinkTo>
 
+    {{#if this.auth.user.isAdmin}}
+      <LinkTo @route='admin' class="text-black px-4 py-2 whitespace-no-wrap">
+        Admin
+      </LinkTo>
+    {{/if}}
+
     <button
       type="button"
       class="border-t text-black px-4 py-2 whitespace-no-wrap"
