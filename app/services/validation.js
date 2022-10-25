@@ -16,6 +16,10 @@ export default class ValidationService extends Service {
     return !!value;
   }
 
+  number(value) {
+    return !isNaN(value);
+  }
+
   // Model helpers
   getValidatorData(obj) {
     if (typeof obj === 'string') {

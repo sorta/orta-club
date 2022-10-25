@@ -1,8 +1,12 @@
 {{outlet}}
 <Admin::Content>
-  <h1 class="text-2xl">
-    <LinkTo @route='admin.members'>
+  <div class="flex flex-wrap">
+    <LinkTo @route='admin.members' class="block text-2xl mx-2 px-4 bg-gray-200">
       Members
     </LinkTo>
-  </h1>
+
+    <LinkTo @route='admin.years' class="block text-2xl mx-2 px-4 bg-gray-200">
+      Years
+    </LinkTo>
+  </div>
 </Admin::Content>

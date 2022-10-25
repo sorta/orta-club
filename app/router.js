@@ -14,6 +14,10 @@ Router.map(function () {
     this.route('members', function () {
       this.route('edit', { path: '/:member_id' });
     });
+
+    this.route('years', function () {
+      this.route('edit', { path: '/:year_id' });
+    });
   });
   this.route('timeline', { path: '/' });
 });
